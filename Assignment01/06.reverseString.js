@@ -2,7 +2,7 @@
 /*
   @param {string} str
 */
-// 03 - Beginner Approach: [Without using reverse() method]
+// 01 - Beginner Approach: [Without using reverse() method]
 const reverseStringBeginner = (str) => {
   let reversedStr = ''
   for (let i = str.length - 1; i >= 0; i--) {
@@ -13,7 +13,7 @@ const reverseStringBeginner = (str) => {
 // Example usage
 console.log(reverseStringBeginner('abcde')) // olleh
 
-// 04 - Intermediate Approach: [Using Two Pointers]
+// 02 - Intermediate Approach: [Using Two Pointers]
 const reverseStringIntermediate = (str) => {
   let reversedStr = ''
   let left = 0
@@ -27,7 +27,7 @@ const reverseStringIntermediate = (str) => {
 // Example usage
 console.log(reverseStringIntermediate('abcde')) // olleh
 
-// 05 - Advanced Approach: [Using Recursion]
+// 03 - Advanced Approach: [Using Recursion]
 function reverseStringAdvanced(str) {
   if (str === '') {
     return ''
