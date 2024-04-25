@@ -1,4 +1,4 @@
-// Desc : Function that reverses a string
+// desc : Function that reverses a string
 /*
   @param {string} str
 */
