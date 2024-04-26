@@ -11,7 +11,7 @@ const reverseStringBeginner = (str) => {
   return reversedStr
 }
 // Example usage
-console.log(reverseStringBeginner('abcde')) // olleh
+console.log(reverseStringBeginner('abcde')) // edcba
 
 // 02 - Intermediate Approach: [Using Two Pointers]
 const reverseStringIntermediate = (str) => {
@@ -25,7 +25,7 @@ const reverseStringIntermediate = (str) => {
   return reversedStr
 }
 // Example usage
-console.log(reverseStringIntermediate('abcde')) // olleh
+console.log(reverseStringIntermediate('abcde')) // edcba
 
 // 03 - Advanced Approach: [Using Recursion]
 function reverseStringAdvanced(str) {
@@ -36,4 +36,4 @@ function reverseStringAdvanced(str) {
   }
 }
 // Example usage
-console.log(reverseStringAdvanced('abcde')) // olleh
+console.log(reverseStringAdvanced('abcde')) // edcba
