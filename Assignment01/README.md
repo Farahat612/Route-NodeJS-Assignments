@@ -4,21 +4,21 @@ This assignment consists of 13 JavaScript problems. Below are the problems and m
 
 > Code file attahced for each problem contains my multiple solutions varying in approach difficulty as possible.
 
-| Problem                            | Solution            | code file                                    |
-| ---------------------------------- | ------------------- | -------------------------------------------- |
-| Sum of Two Numbers                 | [Link](#problem-1)  | [Link](./Assignment01/01.basicSum.js)        |
-| Check Palindrome                   | [Link](#problem-2)  | [Link](./Assignment01/02.palindrome.js)      |
-| Reverse String                     | [Link](#problem-3)  | [Link](./Assignment01/03.reverseString.js)   |
-| Extract Even Numbers               | [Link](#problem-4)  | [Link](./Assignment01/04.evenNumExtract.js)  |
-| Deep Clone                         | [Link](#problem-5)  | [Link](./Assignment01/05.deepClone.js)       |
-| Reverse String without `reverse()` | [Link](#problem-6)  | [Link](./Assignment01/06.reverseString.js)   |
-| Sum of Array                       | [Link](#problem-7)  | [Link](./Assignment01/07.arraySum.js)        |
-| Factorial                          | [Link](#problem-8)  | [Link](./Assignment01/08.factorial.js)       |
-| Average Value                      | [Link](#problem-9)  | [Link](./Assignment01/09.avgValue.js)        |
-| Index of Element                   | [Link](#problem-10) | [Link](./Assignment01/10.indexOfElement.js)  |
-| Check Integer                      | [Link](#problem-11) | [Link](./Assignment01/11.isInteger.js)       |
-| Age to Days                        | [Link](#problem-12) | [Link](./Assignment01/12.ageToDays.js)       |
-| Callbacks                          | [Link](#problem-13) | [Link](./Assignment01/13.callbackExample.js) |
+| Problem                            | Solution            | code file                       |
+| ---------------------------------- | ------------------- | ------------------------------- |
+| Sum of Two Numbers                 | [Link](#problem-1)  | [Link](./01.basicSum.js)        |
+| Check Palindrome                   | [Link](#problem-2)  | [Link](./02.palindrome.js)      |
+| Reverse String                     | [Link](#problem-3)  | [Link](./03.reverseString.js)   |
+| Extract Even Numbers               | [Link](#problem-4)  | [Link](./04.evenNumExtract.js)  |
+| Deep Clone                         | [Link](#problem-5)  | [Link](./05.deepClone.js)       |
+| Reverse String without `reverse()` | [Link](#problem-6)  | [Link](./06.reverseString.js)   |
+| Sum of Array                       | [Link](#problem-7)  | [Link](./07.arraySum.js)        |
+| Factorial                          | [Link](#problem-8)  | [Link](./08.factorial.js)       |
+| Average Value                      | [Link](#problem-9)  | [Link](./09.avgValue.js)        |
+| Index of Element                   | [Link](#problem-10) | [Link](./10.indexOfElement.js)  |
+| Check Integer                      | [Link](#problem-11) | [Link](./11.isInteger.js)       |
+| Age to Days                        | [Link](#problem-12) | [Link](./12.ageToDays.js)       |
+| Callbacks                          | [Link](#problem-13) | [Link](./13.callbackExample.js) |
 
 ## Problem 01 : Sum of Two Numbers <a name="problem-1"></a>
 
