@@ -4,7 +4,7 @@ This assignment consists of 13 JavaScript problems. Below are the problems and m
 
 > Code file attahced for each problem contains my multiple solutions varying in approach difficulty as possible.
 
-| Problem                            | Problem Description | Solution                                     |
+| Problem                            | Solution            | code file                                    |
 | ---------------------------------- | ------------------- | -------------------------------------------- |
 | Sum of Two Numbers                 | [Link](#problem-1)  | [Link](./Assignment01/01.basicSum.js)        |
 | Check Palindrome                   | [Link](#problem-2)  | [Link](./Assignment01/02.palindrome.js)      |
@@ -290,3 +290,28 @@ Explaination:
 > - `Math.floor(age / 4)`: This accounts for the extra day added for leap years. A leap year occurs every 4 years, so we divide the age by 4 and take the floor value to get the number of leap years.
 > - `Math.floor(age / 100)`: This adjusts for the years that are not leap years. Every 100 years, there is no leap year. So we divide the age by 100 and take the floor value to subtract the number of non-leap years.
 > - `Math.floor(age / 400)`: This corrects for the exception to the previous rule. Every 400 years, there is a leap year. So we divide the age by 400 and take the floor value to add the number of leap years.
+
+## Problem 13 : Callbacks <a name="problem-13"></a>
+
+> Explain what a callback function is and provide a simple example.
+
+Solution:
+
+> A callback function is a function that is passed as an argument to another function and is executed after its parent function has finished executing. Callbacks are a way to make sure certain code doesn’t execute until other code has already finished execution.
+
+Here's a simple example of a callback function:
+
+```javascript
+function greeting(name) {
+  console.log('Hello ' + name)
+}
+
+function processUserInput(callback) {
+  var name = prompt('Please enter your name.')
+  callback(name)
+}
+
+processUserInput(greeting)
+```
+
+> In this example, `greeting` is a callback function. It's passed as an argument to `processUserInput`. When `processUserInput` is called, it prompts the user to enter their `name`, then it calls the `greeting` function, passing in the `name` entered by the user.
