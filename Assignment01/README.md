@@ -4,22 +4,23 @@ This assignment consists of 13 JavaScript problems. Below are the problems and m
 
 > Code file attahced for each problem contains my multiple solutions varying in approach difficulty as possible.
 
-| Problem                            | Solution                                    |
-| ---------------------------------- | ------------------------------------------- |
-| Sum of Two Numbers                 | [Link](./Assignment01/01.basicSum.js)       |
-| Check Palindrome                   | [Link](./Assignment01/02.palindrome.js)     |
-| Reverse String                     | [Link](./Assignment01/03.reverseString.js)  |
-| Extract Even Numbers               | [Link](./Assignment01/04.evenNumExtract.js) |
-| Deep Clone                         | [Link](./Assignment01/05.deepClone.js)      |
-| Reverse String without `reverse()` | [Link](./Assignment01/06.reverseString.js)  |
-| Sum of Array                       | [Link](./Assignment01/07.arraySum.js)       |
-| Factorial                          | [Link](./Assignment01/08.factorial.js)      |
-| Average Value                      | [Link](./Assignment01/09.avgValue.js)       |
-| Index of Element                   | [Link](./Assignment01/10.indexOfElement.js) |
-| Check Integer                      | [Link](./Assignment01/11.isInteger.js)      |
-| Age to Days                        | [Link](./Assignment01/12.ageToDays.js)      |
+| Problem                            | Problem Description | Solution                                     |
+| ---------------------------------- | ------------------- | -------------------------------------------- |
+| Sum of Two Numbers                 | [Link](#problem-1)  | [Link](./Assignment01/01.basicSum.js)        |
+| Check Palindrome                   | [Link](#problem-2)  | [Link](./Assignment01/02.palindrome.js)      |
+| Reverse String                     | [Link](#problem-3)  | [Link](./Assignment01/03.reverseString.js)   |
+| Extract Even Numbers               | [Link](#problem-4)  | [Link](./Assignment01/04.evenNumExtract.js)  |
+| Deep Clone                         | [Link](#problem-5)  | [Link](./Assignment01/05.deepClone.js)       |
+| Reverse String without `reverse()` | [Link](#problem-6)  | [Link](./Assignment01/06.reverseString.js)   |
+| Sum of Array                       | [Link](#problem-7)  | [Link](./Assignment01/07.arraySum.js)        |
+| Factorial                          | [Link](#problem-8)  | [Link](./Assignment01/08.factorial.js)       |
+| Average Value                      | [Link](#problem-9)  | [Link](./Assignment01/09.avgValue.js)        |
+| Index of Element                   | [Link](#problem-10) | [Link](./Assignment01/10.indexOfElement.js)  |
+| Check Integer                      | [Link](#problem-11) | [Link](./Assignment01/11.isInteger.js)       |
+| Age to Days                        | [Link](#problem-12) | [Link](./Assignment01/12.ageToDays.js)       |
+| Callbacks                          | [Link](#problem-13) | [Link](./Assignment01/13.callbackExample.js) |
 
-## Problem 01 : Sum of Two Numbers
+## Problem 01 : Sum of Two Numbers <a name="problem-1"></a>
 
 > Write a JavaScript function to calculate the sum of two numbers.
 
@@ -34,7 +35,7 @@ console.log(basicSum(2, 3)) // 5
 console.log(basicSum(5, 7)) // 12
 ```
 
-## Problem 02 : Check Palindrome
+## Problem 02 : Check Palindrome <a name="problem-2"></a>
 
 > Write a JavaScript function to check if a given string is a palindrome.
 
@@ -63,7 +64,7 @@ Explaination:
 > - If the first and last characters are equal, the function calls itself recursively with the substring obtained by removing the first and last characters of the original string. This is done using the slice method: `str.slice(1, str.length - 1)`. The function then repeats the process with the new substring.
 > - The recursion continues until the base case is met or the string is determined to be not a palindrome. If the recursion reaches the base case, the function returns true, indicating that the string is a palindrome
 
-## Problem 03 : Reverse String
+## Problem 03 : Reverse String <a name="problem-3"></a>
 
 > Write a JavaScript program to reverse a given string.
 
@@ -89,7 +90,7 @@ Explaination:
 > - In each iteration, the current character is appended to the `reversedStr` variable using the `+=` operator.
 > - Finally, the `reversedStr` variable, which now contains the reversed string, is returned as the result of the function.
 
-## Problem 04 : Extract Even Numbers
+## Problem 04 : Extract Even Numbers <a name="problem-4"></a>
 
 > Write a JavaScript function that takes an array of numbers and returns a new array with only the even numbers.
 
@@ -108,7 +109,7 @@ Explaination:
 
 > The function simply utilizes filter method to return specific elemnts from the array filtered according a specified condition.
 
-## Problem 05 : Deep Clone
+## Problem 05 : Deep Clone <a name="problem-5"></a>
 
 > Implement a deep clone function in JavaScript that creates a copy of a nested object or array without any reference to the original.
 
@@ -133,7 +134,7 @@ Explaination:
 > - It achieves this by first converting the object to a `JSON` string using `JSON.stringify()`, and then parsing that `JSON` string back into a new object using `JSON.parse()`.
 > - This process creates a new object with the same structure and values as the original, but without any reference to the original object.
 
-## Problem 06 : Reverse String without `reverse()`
+## Problem 06 : Reverse String without `reverse()` <a name="problem-6"></a>
 
 > Implement a function to reverse a string without using the built-in `reverse()` method.
 
@@ -160,7 +161,7 @@ Explaination:
 > - If the base case is not met, the function enters the recursive case. It calls itself with the substring of `str` starting from the second character `str.substr(1)` and concatenates it with the first character of the original string `str[0]`. This reverses the order of the characters in the string.
 > - The recursive calls continue until the base case is met, at which point the function starts returning the reversed substrings one by one, eventually resulting in the fully reversed string.
 
-## Problem 07 : Sum of Array
+## Problem 07 : Sum of Array <a name="problem-7"></a>
 
 > Implement a function to find the sum of all the numbers in an array.
 
@@ -179,7 +180,7 @@ Explaination:
 
 > The function simply utilizes reduce method with a `callback` function that adds each element to the `accumlator`.
 
-## Problem 08 : Factorial
+## Problem 08 : Factorial <a name="problem-8"></a>
 
 > Write a function that accepts a number and returns its factorial (e.g., factorial of 5 is 5 x 4 x 3 x 2 x 1).
 
@@ -204,7 +205,7 @@ Explaination:
 > - If the num is not equal to 0, the function recursively calls itself with the argument `num - 1` and multiplies it with the current value of `num`.
 > - This process continues until `num` becomes 0, at which point the recursion stops and the final result is returned.
 
-## Problem 09 : Average Value
+## Problem 09 : Average Value <a name="problem-9"></a>
 
 > Implement a function that returns the average value of numbers in an array.
 
@@ -223,7 +224,7 @@ Explaination:
 
 > The function simply utilizes reduce method with a `callback` function that adds each element to the `accumlator` to sum all elements and then divide by the arr `length`.
 
-## Problem 10 : Index of Element
+## Problem 10 : Index of Element <a name="problem-10"></a>
 
 > Implement a function that finds the index of a specific element in an array. If the element is not found, the function should return -1.
 
@@ -242,7 +243,7 @@ Explaination:
 
 > The function simply utilizes built-in `indexOf` method to return the `index` of specified element or `-1`.
 
-## Problem 11 : Check Integer
+## Problem 11 : Check Integer <a name="problem-11"></a>
 
 > How would you check if a number is an integer?
 
@@ -262,7 +263,7 @@ Explaination:
 
 > The function simply determines if the `num` is `integer` using `modulos` operator, if the reminder of dividing the `num` by 1 is zero, then it's an `integer` number.
 
-## Problem 12 : Age to Days
+## Problem 12 : Age to Days <a name="problem-12"></a>
 
 > Create a function that takes the age in years and returns the age in days.
 
