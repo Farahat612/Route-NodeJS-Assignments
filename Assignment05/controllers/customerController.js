@@ -7,9 +7,20 @@ exports.signup = (req, res) => {
     [first_name, last_name, email, phone],
     (error, results) => {
       if (error) {
+        console.log(error)
         return res.status(500).json({ error: error.message })
       }
-      res.status(201).json({ id: results.insertId })
+      pool.query(
+        'SELECT * FROM Customers WHERE id = ?',
+        [results.insertId],
+        (error, rows) => {
+          if (error) {
+            console.log(error)
+            return res.status(500).json({ error: error.message })
+          }
+          res.status(201).json(rows[0])
+        }
+      )
     }
   )
 }

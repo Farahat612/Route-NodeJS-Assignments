@@ -1,6 +1,5 @@
--- Database creation
-CREATE DATABASE CustomerOrderDB;
-USE CustomerOrderDB;
+
+USE defaultdb;
 
 -- Customers table
 CREATE TABLE Customers (

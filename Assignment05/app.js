@@ -1,5 +1,6 @@
 // importing the express module and the routes for customers, products, and orders
 const express = require('express')
+require('dotenv').config()
 
 const customerRoutes = require('./routes/customerRoutes')
 const productRoutes = require('./routes/productRoutes')

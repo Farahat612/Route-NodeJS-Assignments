@@ -9,7 +9,16 @@ exports.addProduct = (req, res) => {
       if (error) {
         return res.status(500).json({ error: error.message })
       }
-      res.status(201).json({ id: results.insertId })
+      pool.query(
+        'SELECT * FROM Products WHERE id = ?',
+        [results.insertId],
+        (error, rows) => {
+          if (error) {
+            return res.status(500).json({ error: error.message })
+          }
+          res.status(201).json(rows[0])
+        }
+      )
     }
   )
 }
