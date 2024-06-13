@@ -36,3 +36,23 @@ export const login = async (req, res) => {
 export const logout = (req, res) => {
   res.status(200).json({ message: 'Logout successful' })
 }
+
+export const getUserWithPostAndComments = async (req, res) => {
+  const { userId, postId } = req.params
+  try {
+    const user = await User.findByPk(userId, {
+      include: {
+        model: Post,
+        as: 'posts',
+        where: { id: postId },
+        include: [{ model: Comment, as: 'comments' }],
+      },
+    })
+    if (!user) {
+      return res.status(404).json({ message: 'User or Post not found' })
+    }
+    res.status(200).json(user)
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+}
