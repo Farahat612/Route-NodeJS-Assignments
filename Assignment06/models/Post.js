@@ -20,6 +20,4 @@ const Post = sequelize.define('Post', {
   },
 })
 
-Post.belongsTo(User, { as: 'author', foreignKey: 'authorId' })
-
 export default Post
