@@ -5,6 +5,7 @@ import {
   getPostById,
   updatePost,
   deletePost,
+  getPostWithAuthor,
 } from '../controllers/postController.js'
 import authMiddleware from '../middlewares/authMiddleware.js'
 
@@ -15,5 +16,6 @@ router.get('/', getPosts)
 router.get('/:id', getPostById)
 router.put('/:id', authMiddleware, updatePost)
 router.delete('/:id', authMiddleware, deletePost)
+router.get('/:id/author', getPostWithAuthor)
 
 export default router

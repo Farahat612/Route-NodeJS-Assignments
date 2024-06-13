@@ -60,3 +60,18 @@ export const deletePost = async (req, res) => {
     res.status(500).json({ message: error.message })
   }
 }
+
+export const getPostWithAuthor = async (req, res) => {
+  const { postId } = req.params
+  try {
+    const post = await Post.findByPk(postId, {
+      include: { model: User, as: 'author' },
+    })
+    if (!post) {
+      return res.status(404).json({ message: 'Post not found' })
+    }
+    res.status(200).json(post)
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+}
