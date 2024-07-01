@@ -2,6 +2,9 @@ import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 
+import carRouter from './routes/car.js'
+import customerRouter from './routes/customer.js'
+
 const app = express()
 
 app.use(express.json())
@@ -20,5 +23,8 @@ mongoose
   .catch((err) => {
     console.log('Failed to connect to MongoDB', err)
   })
+
+app.use('/api/customers', customerRouter)
+app.use('/api/cars', carRouter)
 
 export default app
