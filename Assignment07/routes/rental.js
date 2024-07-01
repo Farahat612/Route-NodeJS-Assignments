@@ -3,13 +3,12 @@ import auth from '../middleware/auth.js'
 
 import Car from '../models/car.js'
 import Customer from '../models/customer.js'
+import Rental from '../models/rental.js'
 
 const router = express.Router()
 
 router.post('/', auth, async (req, res) => {
   const { car, customer, rentalDate, returnDate } = req.body
-
-  const carExists = await Car.findById(car)
 
   try {
     const carToRent = await Car.findById(car)
@@ -23,10 +22,24 @@ router.post('/', auth, async (req, res) => {
     carToRent.rentalStatus = 'rented'
     await carToRent.save()
 
-    res.status(201).send(rental)
+    res.status(201).json({
+      message: 'Rental added successfully!',
+      rental,
+    })
   } catch (error) {
     res.status(400).send(error)
   }
+})
+
+router.get('/:id', auth, async (req, res) => {
+  const rental = await Rental.findById(req.params.id)
+  if (!rental) return res.status(404).send({ error: 'Rental not found.' })
+  res.send(rental)
+})
+
+router.get('/', auth, async (req, res) => {
+  const rentals = await Rental.find().populate('car customer')
+  res.send(rentals)
 })
 
 router.patch('/:id', auth, async (req, res) => {
@@ -46,7 +59,10 @@ router.patch('/:id', auth, async (req, res) => {
     updates.forEach((update) => (rental[update] = req.body[update]))
     await rental.save()
 
-    res.send(rental)
+    res.status(200).json({
+      message: 'Rental updated successfully!',
+      rental,
+    })
   } catch (error) {
     res.status(400).send(error)
   }
@@ -61,21 +77,13 @@ router.delete('/:id', auth, async (req, res) => {
     car.rentalStatus = 'available'
     await car.save()
 
-    res.send(rental)
+    res.status(200).json({
+      message: 'Rental deleted successfully!',
+      rental,
+    })
   } catch (error) {
     res.status(500).send(error)
   }
-})
-
-router.get('/:id', auth, async (req, res) => {
-  const rental = await Rental.findById(req.params.id)
-  if (!rental) return res.status(404).send({ error: 'Rental not found.' })
-  res.send(rental)
-})
-
-router.get('/', auth, async (req, res) => {
-  const rentals = await Rental.find().populate('car customer')
-  res.send(rentals)
 })
 
 export default router

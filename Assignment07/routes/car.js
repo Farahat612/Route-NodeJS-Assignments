@@ -65,10 +65,9 @@ router.patch('/:id', auth, async (req, res) => {
 
 router.delete('/:id', auth, async (req, res) => {
   try {
-    const car = await Car.findById(req.params.id)
-    if (!car) return res.status(404).send({ error: 'Car not found.' })
+    const result = await Car.findByIdAndDelete(req.params.id)
+    if (!result) return res.status(404).send({ error: 'Car not found.' })
 
-    await car.remove()
     res.json({ message: 'Car deleted successfully!' })
   } catch (err) {
     res.status(500).json({ message: err.message })
