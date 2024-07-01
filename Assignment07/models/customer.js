@@ -18,10 +18,6 @@ customerSchema.pre('save', async function (next) {
   next()
 })
 
-customerSchema.methods.matchPassword = async function (enteredPassword) {
-  return await bcrypt.compare(enteredPassword, this.password)
-}
-
 const Customer = mongoose.model('Customer', customerSchema)
 
 export default Customer

@@ -1,5 +1,5 @@
 import express from 'express'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
 import Customer from '../models/customer.js'
@@ -39,18 +39,26 @@ router.post('/signup', async (req, res) => {
 router.post('/signin', async (req, res) => {
   try {
     const { email, password } = req.body
+    console.log(`Attempting sign-in with email: ${email}`) // Debug log
 
     const customer = await Customer.findOne({ email: email })
-    if (!customer) return res.status(400).send('Invalid email or password.')
-
-    const validPassword = await customer.matchPassword(password)
-    if (!validPassword)
+    if (!customer) {
+      console.log('Customer not found') // Debug log
       return res.status(400).send('Invalid email or password.')
+    }
+
+    const validPassword = bcrypt.compare(password, customer.password)
+    if (!validPassword) {
+      console.log('Invalid password') // Debug log
+      return res.status(400).send('Invalid email or password.')
+    }
 
     const token = jwt.sign({ _id: customer._id }, process.env.JWT_SECRET)
+    console.log('Sign-in successful') // Debug log
 
     res.send({ token: token })
   } catch (error) {
+    console.error('Error during sign-in:', error.message) // Error log
     res.status(500).send({ error: error.message })
   }
 })
