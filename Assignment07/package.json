@@ -1,6 +1,7 @@
 {
   "name": "car-rental-system",
   "version": "1.0.0",
+  "type": "module",
   "description": "Simple car rental system using Node.js and MongoDB",
   "main": "server.js",
   "scripts": {
