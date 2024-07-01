@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import carRouter from './routes/car.js'
 import customerRouter from './routes/customer.js'
 import rentalRouter from './routes/rental.js'
+import specialRouter from './routes/special.js'
 
 const app = express()
 
@@ -28,5 +29,6 @@ mongoose
 app.use('/api/customers', customerRouter)
 app.use('/api/cars', carRouter)
 app.use('/api/rentals', rentalRouter)
+app.use('/api/special', specialRouter)
 
 export default app
