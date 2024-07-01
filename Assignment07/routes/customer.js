@@ -82,6 +82,12 @@ router.patch('/:id', auth, async (req, res) => {
     const customer = await Customer.findById(req.params.id)
     if (!customer) return res.status(404).send('Customer not found.')
 
+    if (customer._id.toString() !== req.user._id) {
+      return res
+        .status(403)
+        .send({ error: 'You do not have permission to update this user.' })
+    }
+
     updates.forEach(async (update) => {
       customer[update] =
         update === 'password'
@@ -102,8 +108,15 @@ router.patch('/:id', auth, async (req, res) => {
 
 router.delete('/:id', auth, async (req, res) => {
   try {
-    const customer = await Customer.findByIdAndDelete(req.params.id)
+    const customer = await Customer.findById(req.params.id)
     if (!customer) return res.status(404).send('Customer not found.')
+
+    if (customer._id.toString() !== req.user._id) {
+      return res
+        .status(403)
+        .send({ error: 'You do not have permission to delete this user.' })
+    }
+
     res.status(200).send({
       message: 'Customer deleted successfully.',
       customer: customer,
