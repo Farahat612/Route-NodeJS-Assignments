@@ -13,7 +13,7 @@ import Author from '../models/author.js'
 const router = express.Router()
 
 router.post('/', createAuthor)
-router.get('/', pagination(Author, 'books'), getAuthors)
+router.get('/', pagination(Author, 'books', ['name', 'bio']), getAuthors); 
 router.get('/:id', getAuthorById)
 router.patch('/:id', updateAuthor)
 router.delete('/:id', deleteAuthor)
