@@ -1,4 +1,4 @@
-const pagination = (model) => {
+const pagination = (model, populateOptions = '') => {
   return async (req, res, next) => {
     const page = parseInt(req.query.page) || 1
     const limit = parseInt(req.query.limit) || 10
@@ -7,22 +7,28 @@ const pagination = (model) => {
 
     const results = {}
 
-    if (endIndex < (await model.countDocuments().exec())) {
-      results.next = {
-        page: page + 1,
-        limit: limit,
-      }
-    }
-
-    if (startIndex > 0) {
-      results.previous = {
-        page: page - 1,
-        limit: limit,
-      }
-    }
-
     try {
-      results.results = await model.find().limit(limit).skip(startIndex).exec()
+      const count = await model.countDocuments().exec()
+      if (endIndex < count) {
+        results.next = {
+          page: page + 1,
+          limit: limit,
+        }
+      }
+
+      if (startIndex > 0) {
+        results.previous = {
+          page: page - 1,
+          limit: limit,
+        }
+      }
+
+      results.results = await model
+        .find()
+        .limit(limit)
+        .skip(startIndex)
+        .populate(populateOptions)
+        .exec()
       res.paginatedResults = results
       next()
     } catch (err) {

@@ -7,10 +7,13 @@ import {
   updateAuthor,
 } from '../controllers/authorController.js'
 
+import pagination from '../middleware/pagination.js'
+import Author from '../models/author.js'
+
 const router = express.Router()
 
 router.post('/', createAuthor)
-router.get('/', getAuthors)
+router.get('/', pagination(Author, 'books'), getAuthors)
 router.get('/:id', getAuthorById)
 router.patch('/:id', updateAuthor)
 router.delete('/:id', deleteAuthor)

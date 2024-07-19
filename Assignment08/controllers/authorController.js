@@ -15,8 +15,7 @@ export const createAuthor = async (req, res) => {
 // Get all authors
 export const getAuthors = async (req, res) => {
   try {
-    const authors = await Author.find().populate('books').exec()
-    res.json(authors)
+    res.json(res.paginatedResults.results)
   } catch (err) {
     res.status(500).json({ message: err.message })
   }
