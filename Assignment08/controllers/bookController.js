@@ -1,10 +1,19 @@
 import Book from '../models/book.js'
+import Author from '../models/author.js'
 
 // Create a new book
 export const createBook = async (req, res) => {
   const book = new Book(req.body)
   try {
     const newBook = await book.save()
+
+    // Update the corresponding author document
+    await Author.findByIdAndUpdate(
+      newBook.author,
+      { $push: { books: newBook._id } },
+      { new: true, useFindAndModify: false }
+    )
+
     res.status(201).json(newBook)
   } catch (err) {
     res.status(400).json({ message: err.message })
